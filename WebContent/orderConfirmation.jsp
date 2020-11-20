@@ -39,27 +39,27 @@
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
-<title>주문 정보</title>
+<title>注文情報</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">주문 정보</h1>
+			<h1 class="display-3">注文情報</h1>
 		</div>
 	</div>
 	<div class="container col-8 alert alert-info">
 		<div class="text-center ">
-			<h1>영수증</h1>
+			<h1>領収書</h1>
 		</div>
 		<div class="row justify-content-between">
 			<div class="col-4" align="left">
-				<strong>배송 주소</strong> <br> 성명 : <% out.println(shipping_name); %><br> 
-				우편번호 : <% 	out.println(shipping_zipCode);%><br> 
-				주소 : <%	out.println(shipping_addressName);%>(<%	out.println(shipping_country);%>)<br>
+				<strong>届先</strong> <br> 氏名：<% out.println(shipping_name); %><br> 
+				郵便番号：<% 	out.println(shipping_zipCode);%><br> 
+				住所：<%	out.println(shipping_addressName);%>(<%	out.println(shipping_country);%>)<br>
 			</div>
 			<div class="col-4" align="right">
-				<p>	<em>배송일: <% out.println(shipping_shippingDate);	%></em>
+				<p>	<em>配送日：<% out.println(shipping_shippingDate);	%></em>
 			</div>
 		</div>
 		<div>
@@ -67,8 +67,8 @@
 			<tr>
 				<th class="text-center">도서</th>
 				<th class="text-center">#</th>
-				<th class="text-center">가격</th>
-				<th class="text-center">소계</th>
+				<th class="text-center">価格</th>
+				<th class="text-center">小計</th>
 			</tr>
 			<%
 				int sum = 0;
@@ -83,8 +83,8 @@
 			<tr>
 				<td class="text-center"><em><%=product.getPname()%> </em></td>
 				<td class="text-center"><%=product.getQuantity()%></td>
-				<td class="text-center"><%=product.getUnitPrice()%>원</td>
-				<td class="text-center"><%=total%>원</td>
+				<td class="text-center"><%=product.getUnitPrice()%>円</td>
+				<td class="text-center"><%=total%>円</td>
 			</tr>
 			<%
 				}
@@ -92,13 +92,13 @@
 			<tr>
 				<td> </td>
 				<td> </td>
-				<td class="text-right">	<strong>총액: </strong></td>
+				<td class="text-right">	<strong>総額：</strong></td>
 				<td class="text-center text-danger"><strong><%=sum%> </strong></td>
 			</tr>
 			</table>			
-				<a href="./ShippingInfo.jsp?cartId=<%=shipping_cartId%>"class="btn btn-secondary" role="button"> 이전 </a>
-				<a href="./thankCustomer.jsp"  class="btn btn-success" role="button"> 주문 완료 </a>
-				<a href="./checkOutCancelled.jsp" class="btn btn-secondary"	role="button"> 취소 </a>			
+				<a href="./ShippingInfo.jsp?cartId=<%=shipping_cartId%>"class="btn btn-secondary" role="button"> バック </a>
+				<a href="./thankCustomer.jsp"  class="btn btn-success" role="button"> 注文完了 </a>
+				<a href="./checkOutCancelled.jsp" class="btn btn-secondary"	role="button"> 取り消し </a>			
 		</div>
 	</div>	
 </body>

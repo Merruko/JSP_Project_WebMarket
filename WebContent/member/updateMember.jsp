@@ -8,20 +8,20 @@
 	String sessionId = (String) session.getAttribute("sessionId");
 %>
 <sql:setDataSource var="dataSource"
-	url="jdbc:mysql://localhost:3306/HRDB"
+	url="jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8"
 	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
 
 <sql:query dataSource="${dataSource}" var="resultSet">
    SELECT * FROM MEMBER WHERE ID=?
    <sql:param value="<%=sessionId%>" />
 </sql:query>	
-<title>회원 수정</title>
+<title>情報修正</title>
 </head>
 <body onload="init()">
-	<jsp:include page="/menu.jsp" />
+	<jsp:include page="../menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">회원 수정</h1>
+			<h1 class="display-3">情報修正</h1>
 		</div>
 	</div>
 	<c:forEach var="row" items="${resultSet.rows}">
@@ -39,43 +39,43 @@
 			action="processUpdateMember.jsp" method="post"
 			onsubmit="return checkForm()">
 			<div class="form-group  row">
-				<label class="col-sm-2 ">아이디</label>
+				<label class="col-sm-2 ">ID</label>
 				<div class="col-sm-3">
-					<input name="id" type="text" class="form-control" placeholder="id" value="<c:out value='${row.id }'/>" >
+					<input name="id" type="text" class="form-control" placeholder="id" value="<c:out value='${row.id }'/>" style="color: grey" readonly>
 				</div>
 			</div>
 			<div class="form-group  row">
-				<label class="col-sm-2">비밀번호</label>
+				<label class="col-sm-2">パスワード</label>
 				<div class="col-sm-3">
 					<input name="password" type="text" class="form-control" placeholder="password" value="<c:out value='${row.password }'/>" >
 				</div>
 			</div>
 			<div class="form-group  row">
-				<label class="col-sm-2">비밀번호확인</label>
+				<label class="col-sm-2">パスワード確認</label>
 				<div class="col-sm-3">
 					<input name="password_confirm" type="text" class="form-control" placeholder="password_confirm" >
 				</div>
 			</div>
 			<div class="form-group  row">
-				<label class="col-sm-2">성명</label>
+				<label class="col-sm-2">氏名</label>
 				<div class="col-sm-3">
 					<input name="name" type="text" class="form-control" placeholder="name" value="<c:out value='${row.name }'/>" >
 				</div>
 			</div>
 			<div class="form-group  row">
-				<label class="col-sm-2">성별</label>
+				<label class="col-sm-2">性別</label>
 				<div class="col-sm-10">
 					<c:set var="gender" value="${row.gender }" />
-					<input name="gender" type="radio" value="남"	<c:if test="${gender.equals('남')}"> <c:out value="checked" /> </c:if> >남 
-					<input name="gender" type="radio" value="여"	<c:if test="${gender.equals('여')}"> <c:out value="checked" /> </c:if> >여
+					<input name="gender" type="radio" value="男"	<c:if test="${gender.equals('男')}"> <c:out value="checked" /> </c:if> >男 
+					<input name="gender" type="radio" value="女"	<c:if test="${gender.equals('女')}"> <c:out value="checked" /> </c:if> >女
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2">생일</label>
+				<label class="col-sm-2">生年月日</label>
 				<div class="col-sm-4  ">
-					<input type="text" name="birthyy" maxlength="4" placeholder="년(4자)" 	size="6" value="${year}"> 
+					<input type="text" name="birthyy" maxlength="4" placeholder="年(4文字)" size="6" value="${year}"> 
 						<select name="birthmm"	id="birthmm">
-						<option value="">월</option>
+						<option value="">月</option>
 						<option value="01">1</option>
 						<option value="02">2</option>
 						<option value="03">3</option>
@@ -88,11 +88,11 @@
 						<option value="10">10</option>
 						<option value="11">11</option>
 						<option value="12">12</option>
-					</select> <input type="text" name="birthdd" maxlength="2" placeholder="일" size="4" value="${day}">
+					</select> <input type="text" name="birthdd" maxlength="2" placeholder="日" size="4" value="${day}">
 				</div>
 			</div>
 			<div class="form-group  row ">
-				<label class="col-sm-2">이메일</label>
+				<label class="col-sm-2">E-mail</label>
 				<div class="col-sm-10">
 					<input type="text" name="mail1" maxlength="50" value="${mail1}">@
 					<select name="mail2" id="mail2">
@@ -104,22 +104,22 @@
 				</div>
 			</div>
 			<div class="form-group  row">
-				<label class="col-sm-2">전화번호</label>
+				<label class="col-sm-2">連絡先</label>
 				<div class="col-sm-3">
 					<input name="phone" type="text" class="form-control" placeholder="phone" value="<c:out value='${row.phone}'/>">
 				</div>
 			</div>
 
 			<div class="form-group  row">
-				<label class="col-sm-2 ">주소</label>
+				<label class="col-sm-2 ">住所</label>
 				<div class="col-sm-5">
 					<input name="address" type="text" class="form-control" placeholder="address" value="<c:out value='${row.address}'/>">
 				</div>
 			</div>
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="submit" class="btn btn-primary" value="회원수정 "> 
-					<a href="deleteMember.jsp" class="btn btn-primary">회원탈퇴</a>
+					<input type="submit" class="btn btn-primary" value="修正 "> 
+					<a href="deleteMember.jsp" class="btn btn-primary">脱退</a>
 				</div>
 			</div>
 		</form>	
@@ -153,15 +153,15 @@
 	}
 	function checkForm() {
 		if (!document.newMember.id.value) {
-			alert("아이디를 입력하세요.");
+			alert("IDを入力してください。");
 			return false;
 		}
 		if (!document.newMember.password.value) {
-			alert("비밀번호를 입력하세요.");
+			alert("パスワードを入力してください。");
 			return false;
 		}
 		if (document.newMember.password.value != document.newMember.password_confirm.value) {
-			alert("비밀번호를 동일하게 입력하세요.");
+			alert("パスワードを同じく入力してください。");
 			return false;
 		}
 	}

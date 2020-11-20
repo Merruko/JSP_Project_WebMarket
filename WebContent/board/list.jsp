@@ -16,7 +16,7 @@
 <script type="text/javascript">
 	function checkForm() {	
 		if (${sessionId==null}) {
-			alert("로그인 해주세요.");
+			alert("ログインしてください。");
 			return false;
 		}
 
@@ -28,24 +28,24 @@
 	<jsp:include page="../menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">게시판</h1>
+			<h1 class="display-3">掲示板</h1>
 		</div>
 	</div>
 	<div class="container">
 		<form action="<c:url value="./BoardListAction.do"/>" method="post">
 			<div>
 				<div class="text-right">
-					<span class="badge badge-success">전체 <%=total_record%>건	</span>
+					<span class="badge badge-success">全体 <%=total_record%>件	</span>
 				</div>
 			</div>
 			<div style="padding-top: 50px">
 				<table class="table table-hover">
 					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성일</th>
-						<th>조회</th>
-						<th>글쓴이</th>
+						<th>No.</th>
+						<th>Title</th>
+						<th>Date</th>
+						<th>View</th>
+						<th>Name</th>
 					</tr>
 					<%
 						for (int j = 0; j < boardList.size(); j++) {
@@ -84,13 +84,13 @@
 					<tr>
 						<td width="100%" align="left">&nbsp;&nbsp; 
 						<select name="items" class="txt">
-								<option value="subject">제목에서</option>
-								<option value="content">본문에서</option>
-								<option value="name">글쓴이에서</option>
-						</select> <input name="text" type="text" /> <input type="submit" id="btnAdd" class="btn btn-primary " value="검색 " />
+								<option value="subject">タイトルから</option>
+								<option value="content">本文から</option>
+								<option value="name">ネームから</option>
+						</select> <input name="text" type="text" /> <input type="submit" id="btnAdd" class="btn btn-primary " value="検索 " />
 						</td>
 						<td width="100%" align="right">
-							<a href="#" onclick="checkForm(); return false;" class="btn btn-primary">&laquo;글쓰기</a>
+							<a href="#" onclick="checkForm(); return false;" class="btn btn-primary">&laquo;作成</a>
 						</td>
 					</tr>
 				</table>

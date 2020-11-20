@@ -9,19 +9,19 @@ import java.text.SimpleDateFormat;
 public class LogFilter implements Filter  {
 	
 	public void  init(FilterConfig config) throws ServletException{
-		System.out.println("WebMarket 초기화...."); 
+		System.out.println("WebMarket 初期化。。"); 
 	}
 	
 	public void  doFilter(ServletRequest request,ServletResponse response,FilterChain chain) throws java.io.IOException, ServletException {
-		System.out.println(" 접속한 클라이언트 IP : " + request.getRemoteAddr());
+		System.out.println(" 接続したクライアントIP：" + request.getRemoteAddr());
 		long start = System.currentTimeMillis();
-        System.out.println(" 접근한 URL 경로 : " + getURLPath(request));
-		System.out.println(" 요청 처리 시작 시각 : " + getCurrentTime());
+        System.out.println(" 接近したURL経路：" + getURLPath(request));
+		System.out.println(" 要請の処理を始めた時刻：" + getCurrentTime());
 		chain.doFilter(request,response);		
 		
 		long end = System.currentTimeMillis();		
-		System.out.println(" 요청 처리 종료 시각 : " + getCurrentTime());
-		System.out.println(" 요청 처리 소요 시간 : " + (end-start)+ "ms ");
+		System.out.println(" 要請の処理を終了した時刻：" + getCurrentTime());
+		System.out.println(" 要請の処理に掛かった時間：" + (end-start)+ "ms ");
 		System.out.println("=======================================================");
 	}
 

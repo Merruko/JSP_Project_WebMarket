@@ -8,7 +8,7 @@
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">로그인</h1>
+			<h1 class="display-3">ログイン</h1>
 		</div>
 	</div>
 	<div class="container" align="center">
@@ -18,7 +18,7 @@
 				String error = request.getParameter("error");
 				if (error != null) {
 					out.println("<div class='alert alert-danger'>");
-					out.println("아이디와 비밀번호를 확인해 주세요");
+					out.println("IDとパスワードを確認してください。");
 					out.println("</div>");
 				}
 			%>
@@ -31,7 +31,7 @@
 					<label for="inputPassword" class="sr-only">Password</label> 
 					<input	type="password" class="form-control" placeholder="Password" name='j_password' required>
 				</div>
-				<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+				<button class="btn btn btn-lg btn-success btn-block" type="submit">ログイン</button>
 			</form>
 		</div>
 	</div>

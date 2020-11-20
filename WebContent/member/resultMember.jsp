@@ -2,13 +2,13 @@
 <html>
 <head>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css" />
-<title>회원 정보</title>
+<title>会員情報</title>
 </head>
 <body>
 	<jsp:include page="/menu.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">회원정보</h1>
+			<h1 class="display-3">会員情報</h1>
 		</div>
 	</div>
 	<div class="container" align="center">
@@ -17,15 +17,15 @@
 
 			if (msg != null) {
 				if (msg.equals("0"))
-					out.println(" <h2 class='alert alert-danger'>회원정보가 수정되었습니다.</h2>");
+					out.println(" <h2 class='alert alert-danger'>会員情報を修正しました。</h2>");
 				else if (msg.equals("1"))
-					out.println(" <h2 class='alert alert-danger'>회원가입을 축하드립니다.</h2>");
+					out.println(" <h2 class='alert alert-danger'>ようこそ、WebMarketへ</h2>");
 				else if (msg.equals("2")) {
 					String loginId = (String) session.getAttribute("sessionId");
-					out.println(" <h2 class='alert alert-danger'>" + loginId + "님 환영합니다</h2>");
+					out.println(" <h2 class='alert alert-danger'>" + loginId + "様 歓迎します。</h2>");
 				}				
 			} else {
-				out.println("<h2 class='alert alert-danger'>회원정보가 삭제되었습니다.</h2>");
+				out.println("<h2 class='alert alert-danger'>会員情報を削除しました。</h2>");
 			}
 		%>
 	</div>	

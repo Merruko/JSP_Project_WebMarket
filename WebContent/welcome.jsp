@@ -7,7 +7,7 @@
 </head>
 <body>
 	<%@ include file="menu.jsp"%>
-	<%!String greeting = "웹 쇼핑몰에 오신 것을 환영합니다";
+	<%!String greeting = "ようこそ、ウェブマーケットへ";
 	String tagline = "Welcome to Web Market!";%>
 	<div class="jumbotron">
 		<div class="container">
@@ -35,7 +35,7 @@
 					hour = hour - 12;
 				}
 				String CT = hour + ":" + minute + ":" + second + " " + am_pm;
-				out.println("현재 접속  시각: " + CT + "\n");
+				out.println("現在の時刻：" + CT + "\n");
 			%>
 		</div>
 		<hr>

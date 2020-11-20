@@ -1,10 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.sql.*"%> 
+
 <%
 	Connection conn = null;	
 
 	try {
-		String url = "jdbc:mysql://localhost:3306/HRDB";
+		String url = "jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8";
 		String user = "root";
 		String password = "1234";
 
@@ -12,7 +13,7 @@
 		conn = DriverManager.getConnection(url, user, password);
 		
 	} catch (SQLException ex) {
-		out.println("데이터베이스 연결이 실패되었습니다.<br>");
+		out.println("データベースの連結に失敗しました。<br>");
 		out.println("SQLException: " + ex.getMessage());
 	}
 		

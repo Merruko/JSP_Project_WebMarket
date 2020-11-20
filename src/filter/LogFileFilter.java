@@ -17,26 +17,26 @@ public class LogFileFilter implements Filter {
 		String filename = config.getInitParameter("filename");
 
 		if (filename == null)
-			throw new ServletException("로그 파일의 이름을 찾을 수 없습니다.");
+			throw new ServletException("ログファイルの名が見つかりません。");
 
 		try {
 			writer = new PrintWriter(new FileWriter(filename, true), true);
 		} catch (IOException e) {
-			throw new ServletException("로그 파일을 열 수 없습니다.");
+			throw new ServletException("ログファイルを開けません。");
 		}
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws java.io.IOException, ServletException {
-		writer.println(" 접속한 클라이언트 IP : " + request.getRemoteAddr());
+		writer.println(" 接続したクライアントIP：" + request.getRemoteAddr());
 		long start = System.currentTimeMillis();
-		writer.println(" 접근한 URL 경로 : " + getURLPath(request));
-		writer.println(" 요청 처리 시작 시각 :" + getCurrentTime());
+		writer.println(" 接近したURL経路：" + getURLPath(request));
+		writer.println(" 要請の処理を始めた時刻：" + getCurrentTime());
 		
 		chain.doFilter(request, response);
 
 		long end = System.currentTimeMillis();
-		writer.println(" 요청 처리 종료 시각 : " + getCurrentTime());
-		writer.println(" 요청 처리 소요 시간 : " + (end - start) + "ms ");
+		writer.println(" 要請の処理を終了した時刻：" + getCurrentTime());
+		writer.println(" 要請の処理に掛かった時間：" + (end - start) + "ms ");
 		writer.println("=======================================================");
 	}
 

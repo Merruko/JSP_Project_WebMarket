@@ -19,8 +19,9 @@ public class BoardDAO {
 		if (instance == null)
 			instance = new BoardDAO();
 		return instance;
-	}	
-	//board 테이블의 레코드 개수
+	}
+	
+	// board 테이블의 레코드 개수
 	public int getListCount(String items, String text) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -44,7 +45,7 @@ public class BoardDAO {
 				x = rs.getInt(1);
 			
 		} catch (Exception ex) {
-			System.out.println("getListCount() 에러: " + ex);
+			System.out.println("getListCount() エラー：" + ex);
 		} finally {			
 			try {				
 				if (rs != null) 
@@ -59,7 +60,8 @@ public class BoardDAO {
 		}		
 		return x;
 	}
-	//board 테이블의 레코드 가져오기
+	
+	// board 테이블의 레코드 가져오기
 	public ArrayList<BoardDTO> getBoardList(int page, int limit, String items, String text) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -102,7 +104,7 @@ public class BoardDAO {
 			}
 			return list;
 		} catch (Exception ex) {
-			System.out.println("getBoardList() 에러 : " + ex);
+			System.out.println("getBoardList() エラー：" + ex);
 		} finally {
 			try {
 				if (rs != null) 
@@ -117,7 +119,8 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	//member 테이블에서 인증된 id의 사용자명 가져오기
+	
+	// member 테이블에서 인증된 id의 사용자명 가져오기
 	public String getLoginNameById(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -137,7 +140,7 @@ public class BoardDAO {
 			
 			return name;
 		} catch (Exception ex) {
-			System.out.println("getBoardByNum() 에러 : " + ex);
+			System.out.println("getBoardByNum() エラー：" + ex);
 		} finally {
 			try {				
 				if (rs != null) 
@@ -153,10 +156,8 @@ public class BoardDAO {
 		return null;
 	}
 
-	//board 테이블에 새로운 글 삽입히가
+	// board 테이블에 새로운 글 삽입히가
 	public void insertBoard(BoardDTO board)  {
-
-		
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -177,7 +178,7 @@ public class BoardDAO {
 
 			pstmt.executeUpdate();
 		} catch (Exception ex) {
-			System.out.println("insertBoard() 에러 : " + ex);
+			System.out.println("insertBoard() エラー：" + ex);
 		} finally {
 			try {									
 				if (pstmt != null) 
@@ -188,8 +189,9 @@ public class BoardDAO {
 				throw new RuntimeException(ex.getMessage());
 			}		
 		}		
-	} 
-	//선택된 글의 조회수 증가하기
+	}
+	
+	// 선택된 글의 조회수 증가하기
 	public void updateHit(int num) {
 
 		Connection conn = null;
@@ -215,7 +217,7 @@ public class BoardDAO {
 			pstmt.setInt(2, num);
 			pstmt.executeUpdate();
 		} catch (Exception ex) {
-			System.out.println("updateHit() 에러 : " + ex);
+			System.out.println("updateHit() エラー：" + ex);
 		} finally {
 			try {
 				if (rs != null) 
@@ -229,7 +231,8 @@ public class BoardDAO {
 			}			
 		}
 	}
-	//선택된 글 상세 내용 가져오기
+
+	// 선택된 글 상세 내용 가져오기
 	public BoardDTO getBoardByNum(int num, int page) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -259,7 +262,7 @@ public class BoardDAO {
 			
 			return board;
 		} catch (Exception ex) {
-			System.out.println("getBoardByNum() 에러 : " + ex);
+			System.out.println("getBoardByNum() エラー：" + ex);
 		} finally {
 			try {
 				if (rs != null) 
@@ -274,7 +277,8 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	//선택된 글 내용 수정하기
+	
+	// 선택된 글 내용 수정하기
 	public void updateBoard(BoardDTO board) {
 
 		Connection conn = null;
@@ -297,7 +301,7 @@ public class BoardDAO {
 			conn.commit();
 
 		} catch (Exception ex) {
-			System.out.println("updateBoard() 에러 : " + ex);
+			System.out.println("updateBoard() エラー：" + ex);
 		} finally {
 			try {										
 				if (pstmt != null) 
@@ -308,8 +312,9 @@ public class BoardDAO {
 				throw new RuntimeException(ex.getMessage());
 			}		
 		}
-	} 
-	//선택된 글 삭제하기
+	}
+	
+	// 선택된 글 삭제하기
 	public void deleteBoard(int num) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
@@ -323,7 +328,7 @@ public class BoardDAO {
 			pstmt.executeUpdate();
 
 		} catch (Exception ex) {
-			System.out.println("deleteBoard() 에러 : " + ex);
+			System.out.println("deleteBoard() エラー：" + ex);
 		} finally {
 			try {										
 				if (pstmt != null) 

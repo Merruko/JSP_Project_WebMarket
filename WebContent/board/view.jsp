@@ -8,6 +8,7 @@
 	int num = ((Integer) request.getAttribute("num")).intValue();
 	int nowpage = ((Integer) request.getAttribute("page")).intValue();
 %>
+
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
