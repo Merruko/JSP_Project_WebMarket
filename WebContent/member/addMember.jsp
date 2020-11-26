@@ -67,7 +67,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2">生年月日</label>
 				<div class="col-sm-4  ">
-					<input type="text" name="birthyy" maxlength="4" placeholder="年(4文字)" size="6"> 
+					<input type="text" name="birthyy" maxlength="4" placeholder="   年(4文字)" size="6"> 
 					<select name="birthmm">
 						<option value="">月</option>
 						<option value="01">1</option>
@@ -82,13 +82,13 @@
 						<option value="10">10</option>
 						<option value="11">11</option>
 						<option value="12">12</option>
-					</select> <input type="text" name="birthdd" maxlength="2" placeholder="日" size="4">
+					</select> <input type="text" name="birthdd" maxlength="2" placeholder="   日" size="4">
 				</div>
 			</div>
 			<div class="form-group  row ">
 				<label class="col-sm-2">E-mail</label>
 				<div class="col-sm-10">
-					<input type="text" name="mail1" maxlength="50">@ 
+					<input type="text" name="mail1" maxlength="50" placeholder="   email">@ 
 					<select name="mail2">
 						<option>naver.com</option>
 						<option>daum.net</option>
