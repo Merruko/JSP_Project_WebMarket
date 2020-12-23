@@ -6,13 +6,13 @@ import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-public class LogFilter implements Filter  {
+public class LogFilter implements Filter {
 	
-	public void  init(FilterConfig config) throws ServletException{
+	/*public void init(FilterConfig config) throws ServletException{
 		System.out.println("WebMarket 初期化。。"); 
-	}
+	}*/
 	
-	public void  doFilter(ServletRequest request,ServletResponse response,FilterChain chain) throws java.io.IOException, ServletException {
+	public void doFilter(ServletRequest request,ServletResponse response,FilterChain chain) throws java.io.IOException, ServletException {
 		System.out.println(" 接続したクライアントIP：" + request.getRemoteAddr());
 		long start = System.currentTimeMillis();
         System.out.println(" 接近したURL経路：" + getURLPath(request));
@@ -48,4 +48,5 @@ public class LogFilter implements Filter  {
 		calendar.setTimeInMillis(System.currentTimeMillis());
 		return formatter.format(calendar.getTime());
 	}
+	
 }
