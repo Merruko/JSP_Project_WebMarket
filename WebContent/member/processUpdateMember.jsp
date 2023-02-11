@@ -30,7 +30,7 @@
 	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
 
 <sql:update dataSource="${dataSource}" var="resultSet">
-   UPDATE MEMBER SET PASSWORD=?, NAME=?, GENDER=?, BIRTH=?, MAIL=?, PHONE=?, ADDRESS=? WHERE ID=?
+   UPDATE wm_member SET password=?, name=?, gender=?, birth=?, mail=?, phone=?, address=? WHERE id=?
 	<sql:param value="<%=password%>" />
 	<sql:param value="<%=name%>" />
 	<sql:param value="<%=gender%>" />

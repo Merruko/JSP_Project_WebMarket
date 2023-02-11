@@ -30,7 +30,7 @@
 	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
 
 <sql:update dataSource="${dataSource}" var="resultSet">
-   INSERT INTO member VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+   INSERT INTO wm_member VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
    <sql:param value="<%=id%>" />
 	<sql:param value="<%=password%>" />
 	<sql:param value="<%=name%>" />

@@ -41,14 +41,14 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	String sql = "select * from product where p_id = ?";
+	String sql = "SELECT * FROM wm_product WHERE p_id = ?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, productId);
 	rs = pstmt.executeQuery();	
 	
 	if (rs.next()) {		
 		if (fileName != null) {
-			sql = "UPDATE product SET p_name=?, p_unitPrice=?, p_description=?, p_manufacturer=?, p_category=?, p_unitsInStock=?, p_condition=?, p_fileName=? WHERE p_id=?";	
+			sql = "UPDATE wm_product SET p_name=?, p_unitPrice=?, p_description=?, p_manufacturer=?, p_category=?, p_unitsInStock=?, p_condition=?, p_fileName=? WHERE p_id=?";	
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setInt(2, price);
@@ -61,7 +61,7 @@
 			pstmt.setString(9, productId);	
 			pstmt.executeUpdate();
 		} else {
-			sql = "UPDATE product SET p_name=?, p_unitPrice=?, p_description=?, p_manufacturer=?, p_category=?, p_unitsInStock=?, p_condition=? WHERE p_id=?";
+			sql = "UPDATE wm_product SET p_name=?, p_unitPrice=?, p_description=?, p_manufacturer=?, p_category=?, p_unitsInStock=?, p_condition=? WHERE p_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setInt(2, price);

@@ -1,6 +1,6 @@
 USE HRDB;
 
-CREATE TABLE IF NOT EXISTS product(
+CREATE TABLE IF NOT EXISTS wm_product(
 	p_id VARCHAR(10) NOT NULL,
 	p_name VARCHAR(20),
 	p_unitPrice  INTEGER,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS product(
 	PRIMARY KEY (p_id)
 )default CHARSET=utf8;
 
-CREATE TABLE member ( 
+CREATE TABLE wm_member ( 
     id varchar(10) not null,
     password varchar(10) not null,
     name varchar(10) not null,
@@ -26,7 +26,7 @@ CREATE TABLE member (
     primary key(id) 
 ) default CHARSET=utf8;
 
-CREATE TABLE board (
+CREATE TABLE wm_board (
     num int not null auto_increment,
     id varchar(10) not null,
     name varchar(10) not null,
@@ -38,21 +38,21 @@ CREATE TABLE board (
     PRIMARY KEY (num)
 )default CHARSET=utf8;
 
-INSERT INTO product VALUES('P1234', 'iPhone 6s', 80000, '1334X750 Renina HD display, 8-megapixel iSight Camera','Smart Phone', 'Apple', 1000, 'New', 'P1234.png');
-INSERT INTO product VALUES('P1235', 'LG PC gram', 150000, '3.3-inch,IPS LED display, 5rd Generation Intel Core processors', 'Notebook', 'LG', 1000, 'Refurbished', 'P1235.png');
-INSERT INTO product VALUES('P1236', 'Galaxy Tab S', 90000, '3.3-inch, 212.8*125.6*6.6mm,  Super AMOLED display, Octa-Core processor', 'Tablet', 'Samsung', 1000, 'Old', 'P1236.png');
+INSERT INTO wm_product VALUES('P1234', 'iPhone 6s', 80000, '1334X750 Renina HD display, 8-megapixel iSight Camera','Smart Phone', 'Apple', 1000, 'New', 'P1234.png');
+INSERT INTO wm_product VALUES('P1235', 'LG PC gram', 150000, '3.3-inch,IPS LED display, 5rd Generation Intel Core processors', 'Notebook', 'LG', 1000, 'Refurbished', 'P1235.png');
+INSERT INTO wm_product VALUES('P1236', 'Galaxy Tab S', 90000, '3.3-inch, 212.8*125.6*6.6mm,  Super AMOLED display, Octa-Core processor', 'Tablet', 'Samsung', 1000, 'Old', 'P1236.png');
 
 SHOW TABLES;
 
-SELECT * FROM product;
-SELECT * FROM member;
-SELECT * FROM board;
+SELECT * FROM wm_product;
+SELECT * FROM wm_member;
+SELECT * FROM wm_board;
 
-DESC product;
-DESC member;
-DESC board;
+DESC wm_product;
+DESC wm_member;
+DESC wm_board;
 
-ALTER TABLE member MODIFY id VARCHAR(20);
-ALTER TABLE member MODIFY password VARCHAR(20);
+ALTER TABLE wm_member MODIFY id VARCHAR(20);
+ALTER TABLE wm_member MODIFY password VARCHAR(20);
 
-ALTER TABLE board AUTO_INCREMENT = 1;
+ALTER TABLE wm_board AUTO_INCREMENT = 1;

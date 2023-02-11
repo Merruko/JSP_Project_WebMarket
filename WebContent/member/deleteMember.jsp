@@ -11,7 +11,7 @@
 	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
 
 <sql:update dataSource="${dataSource}" var="resultSet">
-   DELETE FROM member WHERE id = ?
+   DELETE FROM wm_member WHERE id = ?
    <sql:param value="<%=sessionId%>" />
 </sql:update>
 

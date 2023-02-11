@@ -32,9 +32,9 @@ public class BoardDAO {
 		String sql;
 		
 		if (items == null && text == null)
-			sql = "select  count(*) from board";
+			sql = "SELECT count(*) FROM wm_board";
 		else
-			sql = "SELECT   count(*) FROM board where " + items + " like '%" + text + "%'";
+			sql = "SELECT count(*) FROM wm_board WHERE " + items + " LIKE '%" + text + "%'";
 		
 		try {
 			conn = DBConnection.getConnection();
@@ -74,9 +74,9 @@ public class BoardDAO {
 		String sql;
 
 		if (items == null && text == null)
-			sql = "select * from board ORDER BY num DESC";
+			sql = "SELECT * FROM wm_board ORDER BY num DESC";
 		else
-			sql = "SELECT  * FROM board where " + items + " like '%" + text + "%' ORDER BY num DESC ";
+			sql = "SELECT * FROM wm_board WHERE " + items + " LIKE '%" + text + "%' ORDER BY num DESC";
 
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 
@@ -126,8 +126,8 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;	
 
-		String name=null;
-		String sql = "select * from member where id = ? ";
+		String name = null;
+		String sql = "SELECT * FROM wm_member WHERE id = ?";
 
 		try {
 			conn = DBConnection.getConnection();
@@ -164,7 +164,7 @@ public class BoardDAO {
 		try {
 			conn = DBConnection.getConnection();		
 
-			String sql = "insert into board values(?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO wm_board VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, board.getNum());
@@ -201,7 +201,7 @@ public class BoardDAO {
 		try {
 			conn = DBConnection.getConnection();
 
-			String sql = "select hit from board where num = ? ";
+			String sql = "SELECT hit FROM wm_board WHERE num = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs = pstmt.executeQuery();
@@ -211,7 +211,7 @@ public class BoardDAO {
 				hit = rs.getInt("hit") + 1;
 		
 
-			sql = "update board set hit=? where num=?";
+			sql = "UPDATE wm_board SET hit=? WHERE num=?";
 			pstmt = conn.prepareStatement(sql);		
 			pstmt.setInt(1, hit);
 			pstmt.setInt(2, num);
@@ -240,7 +240,7 @@ public class BoardDAO {
 		BoardDTO board = null;
 
 		updateHit(num);
-		String sql = "select * from board where num = ? ";
+		String sql = "SELECT * FROM wm_board WHERE num = ?";
 
 		try {
 			conn = DBConnection.getConnection();
@@ -285,7 +285,7 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 	
 		try {
-			String sql = "update board set name=?, subject=?, content=? where num=?";
+			String sql = "UPDATE wm_board SET name=?, subject=?, content=? WHERE num=?";
 
 			conn = DBConnection.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -319,7 +319,7 @@ public class BoardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;		
 
-		String sql = "delete from board where num=?";	
+		String sql = "DELETE FROM wm_board WHERE num=?";	
 
 		try {
 			conn = DBConnection.getConnection();

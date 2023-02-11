@@ -43,7 +43,7 @@
 	
 	PreparedStatement pstmt = null;	
 	
-	String sql = "insert into product values(?,?,?,?,?,?,?,?,?)";
+	String sql = "INSERT INTO wm_product VALUES(?,?,?,?,?,?,?,?,?)";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, productId);
 	pstmt.setString(2, name);

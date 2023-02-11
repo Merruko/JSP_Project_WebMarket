@@ -12,7 +12,7 @@
 	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
 
 <sql:query dataSource="${dataSource}" var="resultSet">
-   SELECT * FROM MEMBER WHERE ID=?
+   SELECT * FROM wm_member WHERE id=?
    <sql:param value="<%=sessionId%>" />
 </sql:query>	
 <title>情報修正</title>

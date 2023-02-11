@@ -7,12 +7,12 @@
 	PreparedStatement pstmt = null;	
 	ResultSet rs = null;
 
-	String sql = "select * from product";
+	String sql = "SELECT * FROM wm_product";
 	pstmt = conn.prepareStatement(sql);
 	rs = pstmt.executeQuery();
 
 	if (rs.next()) {
-		sql = "delete from product where p_id = ?";
+		sql = "DELETE FROM wm_product WHERE p_id = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, productId);
 		pstmt.executeUpdate();
