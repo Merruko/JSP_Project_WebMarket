@@ -5,11 +5,11 @@
 	Connection conn = null;	
 
 	try {
-		String url = "jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8";
-		String user = "root";
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String user = "HR";
 		String password = "1234";
 
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, password);
 		
 	} catch (SQLException ex) {

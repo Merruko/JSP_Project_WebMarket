@@ -1,58 +1,53 @@
-USE HRDB;
+2023/03/06 MySQL -> Oracle
 
-CREATE TABLE IF NOT EXISTS wm_product(
+CREATE TABLE w_product (
 	p_id VARCHAR(10) NOT NULL,
 	p_name VARCHAR(20),
-	p_unitPrice  INTEGER,
-	p_description TEXT,
+	p_unitPrice INT,
+	p_description VARCHAR(100),
    	p_category VARCHAR(20),
 	p_manufacturer VARCHAR(20),
 	p_unitsInStock LONG,
 	p_condition VARCHAR(20),
 	p_fileName  VARCHAR(20),
 	PRIMARY KEY (p_id)
-)default CHARSET=utf8;
+);
 
-CREATE TABLE wm_member ( 
-    id varchar(10) not null,
-    password varchar(10) not null,
-    name varchar(10) not null,
-    gender varchar(4),
-    birth  varchar(10),
-    mail  varchar(30),
-    phone varchar(20),
-    address varchar(90),
-    regist_day varchar(50),    
+CREATE TABLE w_member ( 
+    id VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    name VARCHAR(10) NOT NULL,
+    gender VARCHAR(4),
+    birth  VARCHAR(10),
+    mail  VARCHAR(30),
+    phone VARCHAR(20),
+    address VARCHAR(90),
+    regist_day VARCHAR(50),    
     primary key(id) 
-) default CHARSET=utf8;
+);
 
-CREATE TABLE wm_board (
-    num int not null auto_increment,
-    id varchar(10) not null,
-    name varchar(10) not null,
-    subject varchar(100) not null,
-    content text not null,
-    regist_day varchar(30),
-    hit int,
-    ip varchar(20),
+CREATE TABLE w_board (
+    num INT NOT NULL,
+    id VARCHAR(10) NOT NULL,
+    name VARCHAR(10) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    content VARCHAR(200) NOT NULL,
+    regist_day VARCHAR(30),
+    hit INT,
+    ip VARCHAR(20),
     PRIMARY KEY (num)
-)default CHARSET=utf8;
+);
 
-INSERT INTO wm_product VALUES('P1234', 'iPhone 6s', 80000, '1334X750 Renina HD display, 8-megapixel iSight Camera','Smart Phone', 'Apple', 1000, 'New', 'P1234.png');
-INSERT INTO wm_product VALUES('P1235', 'LG PC gram', 150000, '3.3-inch,IPS LED display, 5rd Generation Intel Core processors', 'Notebook', 'LG', 1000, 'Refurbished', 'P1235.png');
-INSERT INTO wm_product VALUES('P1236', 'Galaxy Tab S', 90000, '3.3-inch, 212.8*125.6*6.6mm,  Super AMOLED display, Octa-Core processor', 'Tablet', 'Samsung', 1000, 'Old', 'P1236.png');
+INSERT INTO w_product VALUES('P1234', 'iPhone 6s', 80000, '1334X750 Renina HD display, 8-megapixel iSight Camera','Smart Phone', 'Apple', 1000, 'New', 'P1234.png');
+INSERT INTO w_product VALUES('P1235', 'LG PC gram', 150000, '3.3-inch,IPS LED display, 5rd Generation Intel Core processors', 'Notebook', 'LG', 1000, 'Refurbished', 'P1235.png');
+INSERT INTO w_product VALUES('P1236', 'Galaxy Tab S', 90000, '3.3-inch, 212.8*125.6*6.6mm,  Super AMOLED display, Octa-Core processor', 'Tablet', 'Samsung', 1000, 'Old', 'P1236.png');
 
-SHOW TABLES;
+INSERT INTO w_member VALUES('kdh9427','sanada9505@','김대호','男','1993/03/29','mrkim9427@naver.com','01095059427','개성하이빌 1203호','2020-11-20 12:27:30.804');
+INSERT INTO w_member VALUES('sanada9427','kdh9505@','김머호','女','1993/03/29','mrkim9427@naver.com','01095059427','도쿄','2020-11-20 15:12:43.582');
 
-SELECT * FROM wm_product;
-SELECT * FROM wm_member;
-SELECT * FROM wm_board;
+INSERT INTO w_board VALUES(1,'kdh9427','김대호','하이루~','방가방가~','2020/11/20(15:38:54)',2,'0:0:0:0:0:0:0:1');
+INSERT INTO w_board VALUES(2,'sanada9427','김머호','아햏햏','뷁~','2020/11/20(15:39:19)',1,'0:0:0:0:0:0:0:1');
 
-DESC wm_product;
-DESC wm_member;
-DESC wm_board;
-
-ALTER TABLE wm_member MODIFY id VARCHAR(20);
-ALTER TABLE wm_member MODIFY password VARCHAR(20);
-
-ALTER TABLE wm_board AUTO_INCREMENT = 1;
+SELECT * FROM w_product;
+SELECT * FROM w_member;
+SELECT * FROM w_board;

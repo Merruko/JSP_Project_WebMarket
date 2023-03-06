@@ -19,7 +19,7 @@
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				
-				String sql = "SELECT * FROM wm_product";
+				String sql = "SELECT * FROM w_product";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				while (rs.next()) {

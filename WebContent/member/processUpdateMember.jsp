@@ -26,11 +26,11 @@
 %>
 
 <sql:setDataSource var="dataSource"
-	url="jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8"
-	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
+	url="jdbc:oracle:thin:@localhost:1521:orcl"
+	driver="oracle.jdbc.driver.OracleDriver" user="HR" password="1234" />
 
 <sql:update dataSource="${dataSource}" var="resultSet">
-   UPDATE wm_member SET password=?, name=?, gender=?, birth=?, mail=?, phone=?, address=? WHERE id=?
+   UPDATE w_member SET password=?, name=?, gender=?, birth=?, mail=?, phone=?, address=? WHERE id=?
 	<sql:param value="<%=password%>" />
 	<sql:param value="<%=name%>" />
 	<sql:param value="<%=gender%>" />

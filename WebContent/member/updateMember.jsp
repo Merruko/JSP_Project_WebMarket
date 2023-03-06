@@ -8,11 +8,11 @@
 	String sessionId = (String) session.getAttribute("sessionId");
 %>
 <sql:setDataSource var="dataSource"
-	url="jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8"
-	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
+	url="jdbc:oracle:thin:@localhost:1521:orcl"
+	driver="oracle.jdbc.driver.OracleDriver" user="HR" password="1234" />
 
 <sql:query dataSource="${dataSource}" var="resultSet">
-   SELECT * FROM wm_member WHERE id=?
+   SELECT * FROM w_member WHERE id=?
    <sql:param value="<%=sessionId%>" />
 </sql:query>	
 <title>情報修正</title>

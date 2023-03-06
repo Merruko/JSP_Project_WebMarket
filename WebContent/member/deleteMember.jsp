@@ -7,11 +7,11 @@
 %>
 
 <sql:setDataSource var="dataSource"
-	url="jdbc:mysql://localhost:3306/HRDB?useUnicode=true&characterEncoding=utf8"
-	driver="com.mysql.jdbc.Driver" user="root" password="1234" />
+	url="jdbc:oracle:thin:@localhost:1521:orcl"
+	driver="oracle.jdbc.driver.OracleDriver" user="HR" password="1234" />
 
 <sql:update dataSource="${dataSource}" var="resultSet">
-   DELETE FROM wm_member WHERE id = ?
+   DELETE FROM w_member WHERE id = ?
    <sql:param value="<%=sessionId%>" />
 </sql:update>
 

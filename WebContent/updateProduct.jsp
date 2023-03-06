@@ -19,7 +19,7 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 	
-		String sql = "SELECT * FROM wm_product WHERE p_id = ?";
+		String sql = "SELECT * FROM w_product WHERE p_id = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, productId);
 		rs = pstmt.executeQuery();
